@@ -8,3 +8,9 @@ class Solution:
                 res+=1
                 cur=n
         return res+1
+
+# Time complexity:
+# O(nlogn)
+
+# Space complexity:
+# O(1)
