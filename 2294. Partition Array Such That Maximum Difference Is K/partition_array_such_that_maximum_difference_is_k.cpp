@@ -15,3 +15,9 @@ public:
         return subsequences+1;  //last one didnt get count
     }
 };
+
+// Time complexity:
+// O(nlogn)
+
+// Space complexity:
+// O(1)
