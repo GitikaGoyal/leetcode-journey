@@ -1,5 +1,5 @@
 // Hash Map Approach
-//T.C.-> O(n+m+q1+n*q2)=o(n*q2)
+//T.C.-> O(n+m+q1+n*q2)=O(n*q2)
 //S.C.-> O(n+m)=O(m)
 class FindSumPairs {
 private:
