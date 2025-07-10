@@ -1,6 +1,6 @@
 // Sliding Window
 // T.C.->O(n)
-// S.C.->O(k)
+// S.C.->O(n)
 class Solution {
 public:
     int maxFreeTime(int eventTime, int k, vector<int>& startTime, vector<int>& endTime) {
