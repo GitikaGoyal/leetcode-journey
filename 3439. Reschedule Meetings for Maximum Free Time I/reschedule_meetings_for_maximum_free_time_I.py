@@ -1,6 +1,6 @@
 # Sliding Window
 # T.C.->O(n)
-# S.C.->O(k)
+# S.C.->O(n)
 class Solution:
     def maxFreeTime(self, eventTime: int, k: int, startTime: List[int], endTime: List[int]) -> int:
         freeArray = []
