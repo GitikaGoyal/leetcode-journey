@@ -35,33 +35,37 @@ If **any two intervals intersect**, the person cannot attend both.
 
 ## 🛠️ Approaches  
 
-### 1️⃣ Brute Force (Compare All Pairs)  
+> ### 1️⃣ Brute Force (Compare All Pairs)  
+>
+>- Compare each interval with every other one.
+>- If any two intervals overlap → return `false`.
+>- Else, return `true`.
+>
+> #### 🧮 Overlap Condition:
+>Two intervals `A` and `B` **overlap** if:
+>min(A.end, B.end) > max(A.start, B.start)
+>
+> #### ⏱️ Time & Space Complexity
+>
+>| Time Complexity | Space Complexity |
+>|-----------------|------------------|
+>| O(n²)           | O(1)             |
 
-- Compare each interval with every other one.
-- If any two intervals overlap → return `false`.
-- Else, return `true`.
 
-#### 🧮 Overlap Condition:
-Two intervals `A` and `B` **overlap** if:
-min(A.end, B.end) > max(A.start, B.start)
-
-#### ⏱️ Time & Space Complexity
-
-| Time Complexity | Space Complexity |
-|-----------------|------------------|
-| O(n²)           | O(1)             |
+>### 2️⃣ Optimized (Sorting by Start Time)  
+>
+>- Sort intervals based on start time.
+>- Then check if any interval overlaps with the previous.
+>- If `yes` → return `false`, else → `true`.
+>
+>
+>#### ⏱️ Time & Space Complexity
+>
+>| Time Complexity | Space Complexity |
+>|-----------------|------------------|
+>| O(n logn)       | O(1)             |
 
 ---
 
-### 2️⃣ Optimized (Sorting by Start Time)  
-
-- Sort intervals based on start time.
-- Then check if any interval overlaps with the previous.
-- If `yes` → return `false`, else → `true`.
-
-
-#### ⏱️ Time & Space Complexity
-
-| Time Complexity | Space Complexity |
-|-----------------|------------------|
-| O(n logn)       | O(1)             |
+## 🏢 Company
+`Amazon`, `Bloomberg`, `Facebook`, `Google`, `Microsoft`, `Twitter`
