@@ -28,42 +28,74 @@ Given an array of meeting time intervals consisting of start and end times [[s1,
 ---
 
 ## 💡 Intuition  
-To attend all meetings, **no two intervals should overlap**.  
-If **any two intervals intersect**, the person cannot attend both.
+To determine the number of rooms needed:
+- We must track **overlapping intervals**.
+- Each overlap indicates the need for an additional room.
 
 ---
 
 ## 🛠️ Approaches  
 
-> ### 1️⃣ Brute Force (Compare All Pairs)  
->
->- Compare each interval with every other one.
->- If any two intervals overlap → return `false`.
->- Else, return `true`.
->
-> #### 🧮 Overlap Condition:
->Two intervals `A` and `B` **overlap** if:
->min(A.end, B.end) > max(A.start, B.start)
->
-> #### ⏱️ Time & Space Complexity
->
->| Time Complexity | Space Complexity |
->|-----------------|------------------|
->| O(n²)           | O(1)             |
+---
 
+### 1️⃣ Min-Heap (Priority Queue)  
 
->### 2️⃣ Optimized (Sorting by Start Time)  
->
->- Sort intervals based on start time.
->- Then check if any interval overlaps with the previous.
->- If `yes` → return `false`, else → `true`.
->
->
->#### ⏱️ Time & Space Complexity
->
->| Time Complexity | Space Complexity |
->|-----------------|------------------|
->| O(n logn)       | O(1)             |
+- Sort intervals by start time.
+- Use a **min-heap** to track the earliest ending meeting.
+- If the current meeting starts after the earliest one ends → reuse the room (pop heap).
+- Otherwise, allocate a new room (push into heap).
+
+#### ⏱️ Time & Space Complexity
+
+| Time Complexity | Space Complexity |
+|-----------------|------------------|
+| O(n log n)      | O(n)             |
+
+---
+
+### 2️⃣ Sweep Line Algorithm (Greedy with Sorting)  
+
+- Break intervals into start & end points with markers (+1 for start, -1 for end).
+- Sort by time; if equal, end comes before start.
+- Count active meetings at each time step.
+
+#### ⏱️ Time & Space Complexity
+
+| Time Complexity | Space Complexity |
+|-----------------|------------------|
+| O(n log n)      | O(n)             |
+
+---
+
+### 3️⃣ Two-Pointer Approach  
+
+- Extract all start and end times.
+- Sort both arrays.
+- Traverse using two pointers:
+     -  If a meeting starts before the earliest ending meeting → need new room.
+     -  Else → reuse a room.
+
+#### ⏱️ Time & Space Complexity
+
+| Time Complexity | Space Complexity |
+|-----------------|------------------|
+| O(n log n)      | O(n)             |
+
+---
+
+### 4️⃣ Greedy with Event Timeline  
+
+- Convert each meeting into two events: (start, +1) and (end, -1).
+- Sort events:
+     -  Earlier time first.
+     -  If equal, end event before start event.
+- Traverse the events to count overlapping meetings.
+
+#### ⏱️ Time & Space Complexity
+
+| Time Complexity | Space Complexity |
+|-----------------|------------------|
+| O(n log n)      | O(n)             |
 
 ---
 
